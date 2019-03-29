@@ -24,6 +24,9 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+        
+        title = "Storm Viewver"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func tableView(_ tableView: UITableView,
