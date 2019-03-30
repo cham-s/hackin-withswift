@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,11 +62,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dLX-7o-AGW" secondAttribute="trailing" id="22v-GV-JSg"/>
-                            <constraint firstItem="dLX-7o-AGW" firstAttribute="bottom" secondItem="P1O-CR-rix" secondAttribute="bottom" id="GdH-cF-kr6"/>
+                            <constraint firstItem="dLX-7o-AGW" firstAttribute="bottom" secondItem="D1f-bj-sbF" secondAttribute="bottom" id="GdH-cF-kr6"/>
                             <constraint firstItem="dLX-7o-AGW" firstAttribute="top" secondItem="D1f-bj-sbF" secondAttribute="top" id="f6I-bU-TKK"/>
                             <constraint firstItem="dLX-7o-AGW" firstAttribute="leading" secondItem="D1f-bj-sbF" secondAttribute="leading" id="ibr-Bi-X9Y"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="P1O-CR-rix"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="dLX-7o-AGW" id="l8e-B2-rqX"/>
