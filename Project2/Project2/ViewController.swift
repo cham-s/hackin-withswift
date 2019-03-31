@@ -13,12 +13,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     private var buttons: [UIButton] {
         return [button1, button2, button3]
     }
     
     public var countries: [String] = []
-    public var score = 0
+    public var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     public var correctAnswer = 0
     
     override func viewDidLoad() {
@@ -53,9 +59,9 @@ class ViewController: UIViewController {
             score -= 1
         }
         let ac = UIAlertController(title: title,
-                                   message: "Your score is \(score)",
+                                   message: "You Are \(title)",
                                    preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue",
+        ac.addAction(UIAlertAction(title: "OK",
                                    style: .default,
                                    handler: askQuestion))
         present(ac, animated: true)
