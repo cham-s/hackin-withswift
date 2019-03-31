@@ -22,8 +22,17 @@ class DetailViewController: UIViewController {
         
         title = selectedImage
         navigationItem.largeTitleDisplayMode = .never
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .action,
+                            target: self,
+                            action: #selector(sharedTapped))
+    }
+    
+    @objc func sharedTapped() {
+        let vc = UIActivityViewController(activityItems: [imageView.image!],
+                                          applicationActivities: [])
+        present(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,4 +48,6 @@ class DetailViewController: UIViewController {
     override var prefersHomeIndicatorAutoHidden: Bool {
         return navigationController?.hidesBarsOnTap ?? false
     }
+    
+    
 }
