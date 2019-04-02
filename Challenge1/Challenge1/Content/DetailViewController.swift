@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.largeTitleDisplayMode = .never
         imageView.image = UIImage(named: selectedImage!)
 
         // Do any additional setup after loading the view.

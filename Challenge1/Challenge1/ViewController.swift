@@ -13,12 +13,16 @@ class ViewController: UITableViewController {
     private var flags: [String] = []
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Flag View"
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
         flags = items.filter { $0.hasSuffix("png") }
             .filter { $0.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil }
-        super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Do any additional setup after loading the view.
     }
     
