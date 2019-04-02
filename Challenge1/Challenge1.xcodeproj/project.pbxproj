@@ -48,6 +48,7 @@
 		0C506AE622530D5800F88831 /* uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C506AC222530D5800F88831 /* uk@2x.png */; };
 		0C506AE722530D5800F88831 /* france@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C506AC322530D5800F88831 /* france@2x.png */; };
 		0C506AE822530D5800F88831 /* estonia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C506AC422530D5800F88831 /* estonia@3x.png */; };
+		0C506AEC22530F7200F88831 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C506AEB22530F7200F88831 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		0C506AC222530D5800F88831 /* uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uk@2x.png"; sourceTree = "<group>"; };
 		0C506AC322530D5800F88831 /* france@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "france@2x.png"; sourceTree = "<group>"; };
 		0C506AC422530D5800F88831 /* estonia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estonia@3x.png"; sourceTree = "<group>"; };
+		0C506AEB22530F7200F88831 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				0C506AB822530D5700F88831 /* us.png */,
 				0C506AB122530D5600F88831 /* us@2x.png */,
 				0C506AAA22530D5600F88831 /* us@3x.png */,
+				0C506AEB22530F7200F88831 /* DetailViewController.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C506AEC22530F7200F88831 /* DetailViewController.swift in Sources */,
 				0C4AA49E225273D400B0CD5C /* ViewController.swift in Sources */,
 				0C4AA49C225273D400B0CD5C /* AppDelegate.swift in Sources */,
 			);

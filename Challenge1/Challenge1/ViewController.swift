@@ -16,8 +16,8 @@ class ViewController: UITableViewController {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
-        flags = items.filter { $0.hasSuffix("png") }.filter { $0.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil }
-        print(flags)
+        flags = items.filter { $0.hasSuffix("png") }
+            .filter { $0.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil }
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -32,5 +32,13 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = flags[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail")
+            as? DetailViewController {
+            vc.selectedImage = flags[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
