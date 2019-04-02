@@ -17,8 +17,20 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         imageView.image = UIImage(named: selectedImage!)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                           target: self, action: #selector(sharedTapped))
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func sharedTapped() {
+        let vc = UIActivityViewController(
+            activityItems: [selectedImage!,
+                            imageView.image!],
+                            applicationActivities: [])
+        
+        present(vc, animated: true)
     }
     
 
