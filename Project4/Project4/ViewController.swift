@@ -11,7 +11,8 @@ import WebKit
 
 class ViewController: UIViewController, WKNavigationDelegate {
     
-    public var webView: WKWebView!
+    private var webView: WKWebView!
+    private var progessView: UIProgressView!
     
     override func loadView() {
         webView = WKWebView()
@@ -31,14 +32,24 @@ class ViewController: UIViewController, WKNavigationDelegate {
                                                             target: self,
                                                             action: #selector(openTapped))
         
+        progessView = UIProgressView(progressViewStyle: .default)
+        progessView.sizeToFit()
+        let progressButton = UIBarButtonItem(customView: progessView)
+        
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                      target: nil,
                                      action: nil)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh,
                                       target: webView,
                                       action: #selector(webView.reload))
-        toolbarItems = [spacer, refresh]
+        toolbarItems = [progressButton, spacer, refresh]
+        
         navigationController?.isToolbarHidden = false
+        
+        webView.addObserver(self,
+                            forKeyPath: #keyPath(WKWebView.estimatedProgress),
+                            options: .new,
+                            context: nil)
     }
     
     @objc func openTapped() {
@@ -66,6 +77,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            progessView.progress = Float(webView.estimatedProgress)
+        }
     }
     
     
