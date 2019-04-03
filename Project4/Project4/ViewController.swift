@@ -13,6 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     private var webView: WKWebView!
     private var progessView: UIProgressView!
+    public var websites = ["apple.com", "hackingwithswift.com"]
     
     override func loadView() {
         webView = WKWebView()
@@ -56,13 +57,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let ac = UIAlertController(title: "Open page...",
                                    message: nil,
                                    preferredStyle: .actionSheet)
-        
-        ac.addAction(UIAlertAction(title: "apple.com",
-                                   style: .default,
-                                   handler: openPage))
-        ac.addAction(UIAlertAction(title: "hackingwithswift.com",
-                                   style: .default,
-                                   handler: openPage))
+        websites.forEach { website in
+            ac.addAction(UIAlertAction(title: website,
+                                       style: .default,
+                                       handler: openPage))
+        }
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.popoverPresentationController?.barButtonItem =
             self.navigationItem.rightBarButtonItem
@@ -88,8 +87,19 @@ class ViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
-    
-
-
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+        
+        if let host = url?.host {
+            for website in websites {
+                if host.contains(website) {
+                    decisionHandler(.allow)
+                    return
+                }
+            }
+        }
+        decisionHandler(.cancel)
+    }
 }
-
