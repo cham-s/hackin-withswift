@@ -12,6 +12,7 @@
 		0CD39A5B2254686B00455B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD39A592254686B00455B72 /* Main.storyboard */; };
 		0CD39A5D2254686D00455B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD39A5C2254686D00455B72 /* Assets.xcassets */; };
 		0CD39A602254686D00455B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD39A5E2254686D00455B72 /* LaunchScreen.storyboard */; };
+		0CD39A692254F00A00455B72 /* WebsiteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD39A672254F00A00455B72 /* WebsiteListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0CD39A5C2254686D00455B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CD39A5F2254686D00455B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CD39A612254686D00455B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD39A682254F00A00455B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Project4/Base.lproj/WebsiteListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		0CD39A492254686B00455B72 = {
 			isa = PBXGroup;
 			children = (
+				0CD39A672254F00A00455B72 /* WebsiteListTableViewController.swift */,
 				0CD39A542254686B00455B72 /* Project4 */,
 				0CD39A532254686B00455B72 /* Products */,
 			);
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD39A692254F00A00455B72 /* WebsiteListTableViewController.swift in Sources */,
 				0CD39A582254686B00455B72 /* ViewController.swift in Sources */,
 				0CD39A562254686B00455B72 /* AppDelegate.swift in Sources */,
 			);
@@ -157,6 +161,14 @@
 				0CD39A5F2254686D00455B72 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0CD39A672254F00A00455B72 /* WebsiteListTableViewController.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CD39A682254F00A00455B72 /* Base */,
+			);
+			name = WebsiteListTableViewController.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
