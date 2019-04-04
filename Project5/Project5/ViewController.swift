@@ -67,7 +67,6 @@ class ViewController: UITableViewController {
                     
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
-                    startGame()
                     return
                 } else {
                     errorTitle = "Word not recognised"
@@ -91,6 +90,7 @@ class ViewController: UITableViewController {
     }
     
     func isPosiible(word: String) -> Bool {
+        guard !word.isEmpty else { return false }
         var tempWord = title!.lowercased()
         
         for letter in word {
