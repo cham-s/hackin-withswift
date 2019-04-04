@@ -45,6 +45,31 @@ class ViewController: UIViewController {
         let labels = [label1, label2, label3, label4, label5]
         
         labels.forEach { view.addSubview($0) }
+        
+        let viewDictionary = [
+            "label1": label1,
+            "label2": label2,
+            "label3": label3,
+            "label4": label4,
+            "label5": label5
+        ]
+        
+        viewDictionary.forEach { label in
+            view.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|[\(label.key)]|",
+                options: [],
+                metrics: nil,
+                views: viewDictionary))
+        }
+        
+        let visualFormat = "V:|" + viewDictionary.keys
+                        .map { "[\($0)]" }.sorted().joined(separator: "-")
+        
+        view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: visualFormat,
+            options: [],
+            metrics: nil,
+            views: viewDictionary))
     }
     
     override var prefersStatusBarHidden: Bool {
