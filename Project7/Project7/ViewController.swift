@@ -16,29 +16,47 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        let urlString: String
+        
+        if navigationController?.tabBarItem.tag == 0 {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        } else {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+        }
+        
+        
         
         if let url = URL(string: urlString) {
             do {
                 let data = try Data(contentsOf: url)
                 parse(json: data)
+                return
             } catch {
                 print(error.localizedDescription)
+                return
             }
         }
+        showError()
+    }
+    
+    private func showError() {
+        let ac = UIAlertController(title: "Loading error",
+                                   message: "Problem",
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     private func parse(json: Data) {
         let decoder = JSONDecoder()
-        print(json)
         do {
             let jsonPetitions = try decoder.decode(Petitions.self, from: json)
             petitions = jsonPetitions.results
             tableView.reloadData()
+            return
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
     override func tableView(_ tableView: UITableView,
@@ -50,7 +68,8 @@ class ViewController: UITableViewController {
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "Title goes here"
+        let petition = petitions[indexPath.row]
+        cell.textLabel?.text = petition.title
         return cell
     }
     
