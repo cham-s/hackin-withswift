@@ -12,6 +12,8 @@
 		0CFB8FD8225904FB007B2D5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CFB8FD6225904FB007B2D5F /* Main.storyboard */; };
 		0CFB8FDA225904FB007B2D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CFB8FD9225904FB007B2D5F /* Assets.xcassets */; };
 		0CFB8FDD225904FB007B2D5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CFB8FDB225904FB007B2D5F /* LaunchScreen.storyboard */; };
+		0CFB8FE622592340007B2D5F /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CFB8FE422592340007B2D5F /* level1.txt */; };
+		0CFB8FE722592340007B2D5F /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0CFB8FE522592340007B2D5F /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0CFB8FD9225904FB007B2D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CFB8FDC225904FB007B2D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CFB8FDE225904FB007B2D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CFB8FE422592340007B2D5F /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		0CFB8FE522592340007B2D5F /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,18 @@
 				0CFB8FD9225904FB007B2D5F /* Assets.xcassets */,
 				0CFB8FDB225904FB007B2D5F /* LaunchScreen.storyboard */,
 				0CFB8FDE225904FB007B2D5F /* Info.plist */,
+				0CFB8FE82259234D007B2D5F /* level */,
 			);
 			path = Project8;
+			sourceTree = "<group>";
+		};
+		0CFB8FE82259234D007B2D5F /* level */ = {
+			isa = PBXGroup;
+			children = (
+				0CFB8FE422592340007B2D5F /* level1.txt */,
+				0CFB8FE522592340007B2D5F /* level2.txt */,
+			);
+			path = level;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +136,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CFB8FE722592340007B2D5F /* level2.txt in Resources */,
 				0CFB8FDD225904FB007B2D5F /* LaunchScreen.storyboard in Resources */,
+				0CFB8FE622592340007B2D5F /* level1.txt in Resources */,
 				0CFB8FDA225904FB007B2D5F /* Assets.xcassets in Resources */,
 				0CFB8FD8225904FB007B2D5F /* Main.storyboard in Resources */,
 			);
