@@ -61,7 +61,7 @@ class ViewController: UITableViewController {
             let jsonPetitions = try decoder.decode(Petitions.self, from: json)
             petitions = jsonPetitions.results
             
-            performSelector(onMainThread: #selector(UITableView.reloadData),
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData),
                             with: nil,
                             waitUntilDone: false)
             return
