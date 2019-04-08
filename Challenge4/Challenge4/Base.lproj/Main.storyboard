@@ -37,6 +37,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="OHC-An-TUt"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="aBe-eX-anN" id="QlG-tI-g59"/>
+                        <outlet property="wordLabel" destination="t1e-dK-Kem" id="IeS-2y-vqu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

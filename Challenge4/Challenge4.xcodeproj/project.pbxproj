@@ -12,6 +12,7 @@
 		0C8BE63F225BBDA800E9E4F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8BE63D225BBDA800E9E4F0 /* Main.storyboard */; };
 		0C8BE641225BBDA900E9E4F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C8BE640225BBDA900E9E4F0 /* Assets.xcassets */; };
 		0C8BE644225BBDA900E9E4F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8BE642225BBDA900E9E4F0 /* LaunchScreen.storyboard */; };
+		0C8BE64C225BC50800E9E4F0 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C8BE64B225BC50800E9E4F0 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0C8BE640225BBDA900E9E4F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C8BE643225BBDA900E9E4F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C8BE645225BBDA900E9E4F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C8BE64B225BC50800E9E4F0 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				0C8BE640225BBDA900E9E4F0 /* Assets.xcassets */,
 				0C8BE642225BBDA900E9E4F0 /* LaunchScreen.storyboard */,
 				0C8BE645225BBDA900E9E4F0 /* Info.plist */,
+				0C8BE64B225BC50800E9E4F0 /* start.txt */,
 			);
 			path = Challenge4;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C8BE644225BBDA900E9E4F0 /* LaunchScreen.storyboard in Resources */,
+				0C8BE64C225BC50800E9E4F0 /* start.txt in Resources */,
 				0C8BE641225BBDA900E9E4F0 /* Assets.xcassets in Resources */,
 				0C8BE63F225BBDA800E9E4F0 /* Main.storyboard in Resources */,
 			);
