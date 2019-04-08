@@ -26,7 +26,9 @@ class ViewController: UIViewController {
     private var chances = 7 {
         didSet {
             chancesLabel.text = "Chances: \(chances)"
-            
+            if chances == 0 {
+                
+            }
         }
     }
     
@@ -73,7 +75,10 @@ class ViewController: UIViewController {
     }
     
     private func endGame(win: Bool) {
-        
+        let message: String
+        if win {
+            message =
+        }
     }
     
     private func submit(answer: String) {
@@ -88,7 +93,6 @@ class ViewController: UIViewController {
         }
         if !hasChanged {
             chances -= 1
-            
         }
     }
     
