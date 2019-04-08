@@ -11,15 +11,29 @@ import UIKit
 class ViewController: UIViewController {
     
     private var words: [String] = []
-    private var currentWord = ""
+    private var currentWord: [Character] = []
     private var usedLetter: [Character] = []
+    private var finalText: [Character] = [] {
+        didSet {
+            wordLabel.text = String(finalText)
+        }
+    }
     private var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
     }
+    private var chances = 7 {
+        didSet {
+            chancesLabel.text = "Chances: \(chances)"
+            
+        }
+    }
+    
+    
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var chancesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +43,24 @@ class ViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(composeLetter))
         
-        if let startWords = Bundle.main.path(forResource: "start", ofType: "txt") {
-            words = startWords.components(separatedBy: "\n")
+        if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
+            if let content = try? String(contentsOfFile: startWordsPath) {
+                words = content.components(separatedBy: "\n")
+            } else {
+                words = ["shoes"]
+            }
         } else {
             words = ["shoes"]
         }
+        startGame()
     }
     
     private func startGame() {
-        currentWord = words.randomElement()!
+        currentWord = Array(words.randomElement()!)
         usedLetter.removeAll(keepingCapacity: true)
-        wordLabel.text = String(repeating: "?", count: currentWord.count)
+        finalText = Array(repeating: "?", count: currentWord.count)
         score = 0
+        print(currentWord)
         
     }
     
@@ -52,10 +72,23 @@ class ViewController: UIViewController {
         present(ac, animated: true)
     }
     
+    private func endGame(win: Bool) {
+        
+    }
+    
     private func submit(answer: String) {
-        let char = answer[0]
-        if currentWord.firstIndex(of: char) {
-            wordLabel.text?.replacingOccurrences(of: :, with: <#T##StringProtocol#>)
+        let char = answer.first!
+        var hasChanged = false
+        
+        for i in currentWord.indices {
+            if currentWord[i] == char {
+                finalText[i] = char
+                hasChanged = true
+            }
+        }
+        if !hasChanged {
+            chances -= 1
+            
         }
     }
     
