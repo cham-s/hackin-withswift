@@ -8,13 +8,39 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+    
+    private var items: [String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "Shopping List"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
+        
     }
-
-
+    
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+                                                 for: indexPath)
+        
+        cell.textLabel?.text = items[indexPath.row]
+        return cell
+    }
+    
+    @objc private func addItem() {
+        let ac = UIAlertController(title: "Add Item", message: "Please input the item name",
+                                   preferredStyle: .actionSheet)
+        ac.addTextField()
+    }
+    
 }
 
