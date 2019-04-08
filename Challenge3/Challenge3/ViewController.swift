@@ -17,7 +17,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         title = "Shopping List"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForItem))
         
     }
     
@@ -29,17 +29,32 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Item",
                                                  for: indexPath)
         
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }
     
-    @objc private func addItem() {
+    private func submit(item: String) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        items.insert(item, at: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+    
+    
+    
+    @objc private func promptForItem() {
         let ac = UIAlertController(title: "Add Item", message: "Please input the item name",
-                                   preferredStyle: .actionSheet)
+                                   preferredStyle: .alert)
         ac.addTextField()
+        let submitAction = UIAlertAction(title: "Add",
+                                         style: .default) { [unowned self, ac] (action: UIAlertAction) in
+            let item = ac.textFields![0]
+            self.submit(item: item.text!)
+        }
+        ac.addAction(submitAction)
+        present(ac, animated: true)
     }
     
 }
