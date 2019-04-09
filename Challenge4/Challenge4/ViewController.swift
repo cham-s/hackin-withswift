@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     private var words: [String] = []
     private var currentWord: [Character] = []
     private var usedLetter: [Character] = []
+    private var usedWords: [String] = []
     private var finalText: [Character] = [] {
         didSet {
             wordLabel.text = String(finalText)
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var chancesLabel: UILabel!
@@ -41,6 +42,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        tableView.dataSource = self
+        tableView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
                                                             target: self,
                                                             action: #selector(composeLetter))
@@ -57,7 +60,18 @@ class ViewController: UIViewController {
         startGame()
     }
     
-    private func startGame() {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return usedWords.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        cell.textLabel?.text = usedWords[indexPath.row]
+        
+        return cell
+    }
+    
+    private func startGame(action: UIAlertAction? = nil) {
         currentWord = Array(words.randomElement()!)
         usedLetter.removeAll(keepingCapacity: true)
         finalText = Array(repeating: "?", count: currentWord.count)
@@ -76,9 +90,24 @@ class ViewController: UIViewController {
     
     private func endGame(win: Bool) {
         let message: String
+        let title: String
+        
         if win {
-            message =
+            title = "Great!"
+            message = "Congratulations! let get to the next word."
+            score += 10
+        } else {
+            title = "Toob bad"
+            message = "Let's move to the next word."
+            score -= 5
         }
+        let ac = UIAlertController(title: title,
+                                   message: message,
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK",
+                                   style: .default,
+                                   handler: startGame))
+        present(ac, animated: true)
     }
     
     private func submit(answer: String) {
