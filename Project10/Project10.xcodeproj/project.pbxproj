@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0D6A17225E81B800193653 /* PerconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D6A16225E81B800193653 /* PerconCell.swift */; };
 		0CC9BC09225DA48400E1E24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC9BC08225DA48400E1E24F /* AppDelegate.swift */; };
 		0CC9BC0B225DA48400E1E24F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC9BC0A225DA48400E1E24F /* ViewController.swift */; };
 		0CC9BC0E225DA48400E1E24F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9BC0C225DA48400E1E24F /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0D6A16225E81B800193653 /* PerconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerconCell.swift; path = Project10/PerconCell.swift; sourceTree = "<group>"; };
 		0CC9BC05225DA48400E1E24F /* Project10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC9BC08225DA48400E1E24F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CC9BC0A225DA48400E1E24F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		0CC9BBFC225DA48400E1E24F = {
 			isa = PBXGroup;
 			children = (
+				0C0D6A16225E81B800193653 /* PerconCell.swift */,
 				0CC9BC07225DA48400E1E24F /* Project10 */,
 				0CC9BC06225DA48400E1E24F /* Products */,
 			);
@@ -137,6 +140,7 @@
 			files = (
 				0CC9BC0B225DA48400E1E24F /* ViewController.swift in Sources */,
 				0CC9BC09225DA48400E1E24F /* AppDelegate.swift in Sources */,
+				0C0D6A17225E81B800193653 /* PerconCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
