@@ -12,7 +12,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private var words: [String] = []
     private var currentWord: [Character] = []
-    private var usedLetter: [Character] = []
+    private var usedLetter: [Character] = [] {
+        didSet {
+            if usedLetter.count == currentWord.count {
+                endGame(win: true)
+            }
+        }
+    }
     private var usedWords: [String] = []
     private var finalText: [Character] = [] {
         didSet {
@@ -26,9 +32,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     private var chances = 7 {
         didSet {
+            print("chances left: \(chances)")
             chancesLabel.text = "Chances: \(chances)"
             if chances == 0 {
-                
+                endGame(win: false)
             }
         }
     }
@@ -57,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             words = ["shoes"]
         }
-        startGame()
+        nextWord()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,11 +78,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    private func startGame(action: UIAlertAction? = nil) {
+    private func nextWord(action: UIAlertAction? = nil) {
         currentWord = Array(words.randomElement()!)
         usedLetter.removeAll(keepingCapacity: true)
         finalText = Array(repeating: "?", count: currentWord.count)
-        score = 0
+        chances = 7
         print(currentWord)
         
     }
@@ -96,6 +103,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             title = "Great!"
             message = "Congratulations! let get to the next word."
             score += 10
+            usedWords.insert(String(currentWord), at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
         } else {
             title = "Toob bad"
             message = "Let's move to the next word."
@@ -106,21 +116,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                    preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK",
                                    style: .default,
-                                   handler: startGame))
+                                   handler: nextWord))
         present(ac, animated: true)
     }
     
     private func submit(answer: String) {
         let char = answer.first!
-        var hasChanged = false
+        var hasChanged: Bool? = nil
         
         for i in currentWord.indices {
             if currentWord[i] == char {
                 finalText[i] = char
-                hasChanged = true
+                usedLetter.append(currentWord[i])
+                if hasChanged == nil {
+                    hasChanged = true
+                }
             }
         }
-        if !hasChanged {
+        if hasChanged == nil {
             chances -= 1
         }
     }
