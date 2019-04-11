@@ -48,9 +48,7 @@ class ViewController: UICollectionViewController,
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 willDisplay cell: UICollectionViewCell,
-                                 forItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         let ac = UIAlertController(title: "Rename person",
                                    message: nil,
