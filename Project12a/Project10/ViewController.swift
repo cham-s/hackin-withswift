@@ -18,6 +18,14 @@ class ViewController: UICollectionViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            if let decodePople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
+                people = decodePople
+            }
+        }
+        
         navigationItem.leftBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .add,
                             target: self,
@@ -58,7 +66,7 @@ class ViewController: UICollectionViewController,
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [unowned self, ac] _ in
             let newName = ac.textFields![0]
             person.name = newName.text!
-            
+            self.save()
             self.collectionView.reloadData()
         })
         
@@ -71,6 +79,15 @@ class ViewController: UICollectionViewController,
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    func save() {
+        if let savedData = try?
+        NSKeyedArchiver.archivedData(withRootObject: people,
+                                     requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -86,6 +103,7 @@ class ViewController: UICollectionViewController,
         
         let person = Person(name: "Unknow", image: imageName)
         people.append(person)
+        save()
         collectionView.reloadData()
         
         dismiss(animated: true)
