@@ -89,6 +89,23 @@ class ViewController: UIViewController,
         applyProcessing()
     }
     
+    @objc func image(_ image: UIImage, didFinishSavingWithError error:
+        Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            let ac = UIAlertController(title: "Save error",
+                                       message: error.localizedDescription,
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!",
+                                       message: "Your altered image has been saved to your photos",
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
     @IBAction func changeFilter(_ sender: UIButton) {
         let ac = UIAlertController(title: "Choose filter",
                                    message: nil,
@@ -105,6 +122,8 @@ class ViewController: UIViewController,
     }
     
     @IBAction func save(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(imageView.image!, self,
+                                       #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     @IBAction func intensityChanged(_ sender: Any) {
         applyProcessing()
