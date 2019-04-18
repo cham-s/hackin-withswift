@@ -29,7 +29,20 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1, delay: 0, options: [], animations: { [unowned self] in
             switch self.currentAnimation {
             case 0:
-                break
+                self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            case (let value) where !value.isMultiple(of: 2) && value != 7:
+                self.imageView.transform = CGAffineTransform.identity
+            case 2:
+                self.imageView.transform = CGAffineTransform(translationX: -256,
+                                                             y: -256)
+            case 4:
+                self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            case 6:
+                self.imageView.alpha = 0.1
+                self.imageView.backgroundColor = UIColor.green
+            case 7:
+                self.imageView.alpha = 1
+                self.imageView.backgroundColor = UIColor.clear
             default:
                 break
             }
