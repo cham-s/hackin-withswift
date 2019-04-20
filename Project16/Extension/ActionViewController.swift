@@ -11,39 +11,27 @@ import MobileCoreServices
 
 class ActionViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-
+    private var pageTitle = ""
+    private var pageURL = ""
+    
+    @IBOutlet weak var script: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Get the item[s] we're handling from the extension context.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         
-        // For example, look for an image and place it into an image view.
-        // Replace this with something appropriate for the type[s] your extension supports.
-        var imageFound = false
-        for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
-                if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
-                    // This is an image. We'll load it, then place it in our image view.
-                    weak var weakImageView = self.imageView
-                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
-                        OperationQueue.main.addOperation {
-                            if let strongImageView = weakImageView {
-                                if let imageURL = imageURL as? URL {
-                                    strongImageView.image = UIImage(data: try! Data(contentsOf: imageURL))
-                                }
-                            }
-                        }
-                    })
+        if let inputItem = extensionContext!.inputItems.first as? NSExtensionItem {
+            if let itemProvider = inputItem.attachments?.first {
+                itemProvider.loadItem(forTypeIdentifier:
+                kUTTypePropertyList as String) { [unowned self] (dict, error) in
+                    let itemDictionary = dict as! NSDictionary
+                    let javascriptValues = itemDictionary[NSExtensionItemAttributedContentTextKey] as! NSDictionary
+                    self.pageTitle = javascriptValues["title"] as! String
+                    self.pageURL = javascriptValues["URL"] as! String
                     
-                    imageFound = true
-                    break
+                    DispatchQueue.main.async {
+                        self.title = self.pageTitle
+                    }
                 }
-            }
-            
-            if (imageFound) {
-                // We only handle one image, so stop looking for more.
-                break
             }
         }
     }
@@ -51,7 +39,13 @@ class ActionViewController: UIViewController {
     @IBAction func done() {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
-        self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        // self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        let item = NSExtensionItem()
+        let argument: NSDictionary = ["customJavaScript": script.text!]
+        let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
+        let customJavaScript = NSItemProvider(item: webDictionary, typeIdentifier: kUTTypePropertyList as String)
+        item.attachments = [customJavaScript]
+        extensionContext!.completeRequest(returningItems: [item])
     }
 
 }

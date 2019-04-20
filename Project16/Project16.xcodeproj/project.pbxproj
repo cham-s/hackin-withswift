@@ -16,6 +16,8 @@
 		0C1191C7226A60610078F343 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1191C6226A60610078F343 /* ActionViewController.swift */; };
 		0C1191CA226A60610078F343 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1191C8226A60610078F343 /* MainInterface.storyboard */; };
 		0C1191CE226A60610078F343 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0C1191C2226A60610078F343 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0C1191D4226A8EE00078F343 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 0C1191D3226A8EE00078F343 /* Action.js */; };
+		0C1191D5226A905C0078F343 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 0C1191D3226A8EE00078F343 /* Action.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		0C1191C6226A60610078F343 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		0C1191C9226A60610078F343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		0C1191CB226A60610078F343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C1191D3226A8EE00078F343 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 				0C1191C6226A60610078F343 /* ActionViewController.swift */,
 				0C1191C8226A60610078F343 /* MainInterface.storyboard */,
 				0C1191CB226A60610078F343 /* Info.plist */,
+				0C1191D3226A8EE00078F343 /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -198,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1191D5226A905C0078F343 /* Action.js in Resources */,
 				0C1191B7226A5F6E0078F343 /* LaunchScreen.storyboard in Resources */,
 				0C1191B4226A5F6E0078F343 /* Assets.xcassets in Resources */,
 				0C1191B2226A5F6C0078F343 /* Main.storyboard in Resources */,
@@ -208,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1191D4226A8EE00078F343 /* Action.js in Resources */,
 				0C1191C5226A60610078F343 /* Media.xcassets in Resources */,
 				0C1191CA226A60610078F343 /* MainInterface.storyboard in Resources */,
 			);
