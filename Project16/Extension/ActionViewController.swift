@@ -11,8 +11,8 @@ import MobileCoreServices
 
 class ActionViewController: UIViewController {
 
-    private var pageTitle = ""
-    private var pageURL = ""
+    public var pageTitle = ""
+    public var pageURL = ""
     
     @IBOutlet weak var script: UITextView!
     override func viewDidLoad() {
