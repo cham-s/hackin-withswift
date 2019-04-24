@@ -130,7 +130,7 @@ class GameScene: SKScene {
                 bombSoundEffect = nil
             }
             
-            let path = Bundle.main.path(forResource: "sliceBombeFuse.caf", ofType: nil)!
+            let path = Bundle.main.path(forResource: "sliceBombFuse.caf", ofType: nil)!
             let url = URL(fileURLWithPath: path)
             let sound = try! AVAudioPlayer(contentsOf: url)
             bombSoundEffect = sound
@@ -208,6 +208,25 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if activeEnemies.count > 0 {
+            for node in activeEnemies {
+                if node.position.y < -140 {
+                    node.removeFromParent()
+                    if let index = activeEnemies.firstIndex(of: node) {
+                        activeEnemies.remove(at: index)
+                    }
+                }
+            }
+        } else {
+            if !nextSequenceQueued {
+                DispatchQueue.main.asyncAfter(deadline: .now() + popupTime) { [unowned self] in
+                    self.tossEnemies()
+                }
+                nextSequenceQueued = true
+            }
+        }
+        
         let bombCount = activeEnemies.filter { $0.name == "bombContainer" }.count
         if bombCount == 0 {
             if bombSoundEffect != nil {
