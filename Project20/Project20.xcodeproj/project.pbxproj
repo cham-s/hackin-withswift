@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C0627B5227394E100EB0C6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0627B4227394E100EB0C6E /* AppDelegate.swift */; };
 		0C0627B7227394E100EB0C6E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C0627B6227394E100EB0C6E /* GameScene.sks */; };
-		0C0627B9227394E100EB0C6E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C0627B8227394E100EB0C6E /* Actions.sks */; };
 		0C0627BB227394E100EB0C6E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0627BA227394E100EB0C6E /* GameScene.swift */; };
 		0C0627BD227394E100EB0C6E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0627BC227394E100EB0C6E /* GameViewController.swift */; };
 		0C0627C0227394E100EB0C6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C0627BE227394E100EB0C6E /* Main.storyboard */; };
@@ -28,7 +27,6 @@
 		0C0627B1227394E100EB0C6E /* Project20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project20.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C0627B4227394E100EB0C6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C0627B6227394E100EB0C6E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0C0627B8227394E100EB0C6E /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		0C0627BA227394E100EB0C6E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		0C0627BC227394E100EB0C6E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0C0627BF227394E100EB0C6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 			children = (
 				0C0627B4227394E100EB0C6E /* AppDelegate.swift */,
 				0C0627B6227394E100EB0C6E /* GameScene.sks */,
-				0C0627B8227394E100EB0C6E /* Actions.sks */,
 				0C0627BA227394E100EB0C6E /* GameScene.swift */,
 				0C0627BC227394E100EB0C6E /* GameViewController.swift */,
 				0C0627BE227394E100EB0C6E /* Main.storyboard */,
@@ -171,7 +168,6 @@
 				0C0627C2227394E200EB0C6E /* Assets.xcassets in Resources */,
 				0C0627D62273955500EB0C6E /* rocket.png in Resources */,
 				0C0627C5227394E200EB0C6E /* LaunchScreen.storyboard in Resources */,
-				0C0627B9227394E100EB0C6E /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chams.Project20;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -358,7 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chams.Project20;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
