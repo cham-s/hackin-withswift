@@ -37,7 +37,60 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        checkTouches(touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        checkTouches(touches)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        for (index, firework) in fireworks.enumerated().reversed() {
+            if firework.position.y > 900 {
+                fireworks.remove(at: index)
+                firework.removeFromParent()
+            }
+        }
+    }
+    
+    func explode(firework: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "explode")!
+        emitter.position = firework.position
+        addChild(emitter)
         
+        firework.removeFromParent()
+    }
+    
+    func explodeFireworks() {
+        var numExploded = 0
+        
+        for (index, fireworkContainer) in fireworks.enumerated().reversed() {
+            let firework = fireworkContainer.children[0] as! SKSpriteNode
+            
+            if firework.name == "selected" {
+                explode(firework: fireworkContainer)
+                fireworks.remove(at: index)
+                numExploded += 1
+            }
+        }
+        
+        switch numExploded {
+        case 0:
+            // nothing – rubbish!
+            break case 1:
+                score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
+        }
+
     }
     
     func createFirework(xMovement: CGFloat, x: Int, y: Int) {
@@ -128,6 +181,31 @@ class GameScene: SKScene {
                            y: bottomEdge)
         default:
             break
+        }
+    }
+    
+    func checkTouches(_ touches: Set<UITouch>) {
+        guard let touch = touches.first else { return }
+        
+        let location = touch.location(in: self)
+        let nodesAtPoint = nodes(at: location)
+        
+        for node in nodesAtPoint {
+            if node is SKSpriteNode {
+                let sprite = node as! SKSpriteNode
+                
+                if sprite.name == "firework" {
+                    for parent in fireworks {
+                        let firework = parent.children[0] as! SKSpriteNode
+                        if firework.name == "selected" && firework.color != sprite.color {
+                            firework.name = "firework"
+                            firework.colorBlendFactor = 1
+                        }
+                    }
+                    sprite.name = "selected"
+                    sprite.colorBlendFactor = 0
+                }
+            }
         }
     }
     
