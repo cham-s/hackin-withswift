@@ -12,6 +12,8 @@
 		0CA504ED227B7747000C4E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CA504EB227B7747000C4E4A /* Main.storyboard */; };
 		0CA504EF227B7749000C4E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CA504EE227B7749000C4E4A /* Assets.xcassets */; };
 		0CA504F2227B7749000C4E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CA504F0227B7749000C4E4A /* LaunchScreen.storyboard */; };
+		0CA504FB227B83F2000C4E4A /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA504F9227B83F1000C4E4A /* KeychainItemAccessibility.swift */; };
+		0CA504FC227B83F2000C4E4A /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA504FA227B83F1000C4E4A /* KeychainWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0CA504EE227B7749000C4E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CA504F1227B7749000C4E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CA504F3227B7749000C4E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CA504F9227B83F1000C4E4A /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		0CA504FA227B83F1000C4E4A /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				0CA504EE227B7749000C4E4A /* Assets.xcassets */,
 				0CA504F0227B7749000C4E4A /* LaunchScreen.storyboard */,
 				0CA504F3227B7749000C4E4A /* Info.plist */,
+				0CA504F9227B83F1000C4E4A /* KeychainItemAccessibility.swift */,
+				0CA504FA227B83F1000C4E4A /* KeychainWrapper.swift */,
 			);
 			path = Project28;
 			sourceTree = "<group>";
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CA504EA227B7747000C4E4A /* ViewController.swift in Sources */,
+				0CA504FC227B83F2000C4E4A /* KeychainWrapper.swift in Sources */,
 				0CA504E8227B7747000C4E4A /* AppDelegate.swift in Sources */,
+				0CA504FB227B83F2000C4E4A /* KeychainItemAccessibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
