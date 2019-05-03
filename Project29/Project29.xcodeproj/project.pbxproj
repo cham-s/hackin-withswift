@@ -25,6 +25,7 @@
 		0C353CDD227CBC5000437860 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C353CD2227CBC5000437860 /* banana.png */; };
 		0C353CDE227CBC5000437860 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C353CD3227CBC5000437860 /* player.png */; };
 		0C353CDF227CBC5000437860 /* player2Throw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C353CD4227CBC5000437860 /* player2Throw@2x.png */; };
+		0C353CE1227CBCBE00437860 /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C353CE0227CBCBE00437860 /* BuildingNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0C353CD2227CBC5000437860 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
 		0C353CD3227CBC5000437860 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		0C353CD4227CBC5000437860 /* player2Throw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2Throw@2x.png"; sourceTree = "<group>"; };
+		0C353CE0227CBCBE00437860 /* BuildingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0C353CB1227CBBC600437860 /* AppDelegate.swift */,
 				0C353CB3227CBBC600437860 /* GameScene.sks */,
 				0C353CB7227CBBC600437860 /* GameScene.swift */,
+				0C353CE0227CBCBE00437860 /* BuildingNode.swift */,
 				0C353CB9227CBBC600437860 /* GameViewController.swift */,
 				0C353CBB227CBBC600437860 /* Main.storyboard */,
 				0C353CBE227CBBC700437860 /* Assets.xcassets */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C353CB8227CBBC600437860 /* GameScene.swift in Sources */,
+				0C353CE1227CBCBE00437860 /* BuildingNode.swift in Sources */,
 				0C353CBA227CBBC600437860 /* GameViewController.swift in Sources */,
 				0C353CB2227CBBC600437860 /* AppDelegate.swift in Sources */,
 			);
