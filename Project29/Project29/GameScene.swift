@@ -18,6 +18,8 @@ enum CollisionTypes: UInt32 {
 class GameScene: SKScene {
     private var buildings = [BuildingNode]()
     
+    public weak var viewController: GameViewController!
+    
     override func didMove(to view: SKView) {
         backgroundColor = UIColor(hue: 0.669, saturation: 0.99,
                                   brightness: 0.67, alpha: 1)
