@@ -47,7 +47,7 @@ class GameScene: SKScene {
         
         let player1Building = buildings[1]
         player1.position = CGPoint(x: player1Building.position.x,
-                                   y: player1Building.position.y + ((player1Building.size.height) / 2))
+                                   y: player1Building.position.y + ((player1Building.size.height + player1.size.height) / 2))
         addChild(player1)
         
         player2 = SKSpriteNode(imageNamed: "player")
@@ -59,8 +59,8 @@ class GameScene: SKScene {
         player2.physicsBody?.isDynamic = false
         
         let player2Building = buildings[buildings.count - 2]
-        player1.position = CGPoint(x: player2Building.position.x,
-                                   y: player2Building.position.y + ((player2Building.size.height) / 2))
+        player2.position = CGPoint(x: player2Building.position.x,
+                                   y: player2Building.position.y + ((player2Building.size.height + player2.size.height) / 2))
         addChild(player2)
     }
     
