@@ -7,14 +7,41 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate,
+UITextFieldDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var adrressBar: UITextField!
+    @IBOutlet weak var stackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setDefaultTitle()
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWebView))
+        let delete = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteWebView))
+        navigationItem.rightBarButtonItems = [delete, add]
     }
-
-
+    
+    func setDefaultTitle() {
+        title = "Multiplebrowser"
+    }
+    
+    @objc func addWebView() {
+        let webView = WKWebView()
+        webView.navigationDelegate = self
+        
+        stackView.addArrangedSubview(webView)
+        
+        let url = URL(string: "https://hackingwithswift.com")!
+        webView.load(URLRequest(url: url))
+    }
+    
+    @objc func deleteWebView() {
+        
+    }
+    
 }
 
