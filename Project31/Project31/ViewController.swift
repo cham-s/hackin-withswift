@@ -61,6 +61,16 @@ UITextFieldDelegate, UIGestureRecognizerDelegate {
         return true
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.horizontalSizeClass == .compact {
+            stackView.axis = .vertical
+        } else {
+            stackView.axis = .horizontal
+        }
+    }
+    
+
+    
     @objc func webViewTapped(_ recognizer: UITapGestureRecognizer) {
         if let selectedWebView = recognizer.view as? WKWebView {
             selectWebView(selectedWebView)
@@ -85,8 +95,26 @@ UITextFieldDelegate, UIGestureRecognizerDelegate {
     }
     
     @objc func deleteWebView() {
-        
+        if let webView = activeWebView {
+            if let index = stackView.arrangedSubviews.firstIndex(of: webView) {
+                stackView.removeArrangedSubview(webView)
+                webView.removeFromSuperview()
+                if stackView.arrangedSubviews.count == 0 {
+                    setDefaultTitle()
+                } else {
+                    var currentIndex = Int(index)
+                    
+                    if currentIndex == stackView.arrangedSubviews.count {
+                        currentIndex = stackView.arrangedSubviews.count - 1
+                    }
+                    
+                    if let newSelectedWebView =
+                        stackView.arrangedSubviews[currentIndex] as? WKWebView {
+                        selectWebView(newSelectedWebView)
+                    }
+                }
+            }
+        }
     }
-    
 }
 
