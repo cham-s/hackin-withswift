@@ -11,7 +11,8 @@ import SafariServices
 
 class ViewController: UITableViewController {
 
-    var projects: [[String]] = []
+    private var projects: [[String]] = []
+    private var favorites = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,13 @@ class ViewController: UITableViewController {
             projects.append(["Project 6: Auto Layout", "Get to grips with Auto Layout using practical examples and code"])
             projects.append(["Project 7: Whitehouse Petitions", "JSON, Data, UITabBarController"])
             projects.append(["Project 8: 7 Swifty Words", "addTarget(), enumerated(), count, index(of:), property observers, range operators."])
+        
+        let defaults = UserDefaults.standard
+        if let savedFavorites = defaults.object(forKey: "favorites") as? [Int] {
+            favorites = savedFavorites
+            tableView.isEditing = true
+            tableView.allowsSelectionDuringEditing = true
+        }
     }
     
     override func tableView(_ tableView: UITableView,
@@ -37,8 +45,21 @@ class ViewController: UITableViewController {
                                                  for: indexPath)
         let project = projects[indexPath.row]
         cell.textLabel?.attributedText = makeAttributedString(title: project[0], subtitle: project[1])
+        if favorites.contains(indexPath.row) {
+            cell.editingAccessoryType = .checkmark
+        } else {
+            cell.editingAccessoryType = .none
+        }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if favorites.contains(indexPath.row) {
+            return .delete
+        } else {
+            return .insert
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
