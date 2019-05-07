@@ -35,10 +35,22 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath)
         let project = projects[indexPath.row]
-        cell.textLabel?.text = "\(project[0]): \(project[1])"
+        cell.textLabel?.attributedText = makeAttributedString(title: project[0], subtitle: project[1])
         
         return cell
     }
     
+    func makeAttributedString(title: String, subtitle: String) ->
+        NSAttributedString {
+            let titleAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline),
+                                   NSAttributedString.Key.foregroundColor: UIColor.purple
+            ]
+            let subtitleAttributes = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .subheadline)]
+            let titleString = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttributes)
+            let subtitleString = NSAttributedString(string: subtitle, attributes: subtitleAttributes)
+            titleString.append(subtitleString)
+            
+            return titleString
+    }
 }
 
