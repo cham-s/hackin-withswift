@@ -18,54 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="2bD-j2-E9u">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="87I-ts-vhK">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="698"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IG9-5L-Lqe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O34-Q5-7Jz">
                                         <rect key="frame" x="0.0" y="0.0" width="144.5" height="698"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-2d-yr7">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yfc-6S-7ff"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llQ-O5-ABr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJ1-Wb-nRc">
-                                        <rect key="frame" x="171" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xky-Gr-2De">
+                                        <rect key="frame" x="146.5" y="0.0" width="144.5" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ae-Ze-eQ2"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Wk-vK-8a6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4d-kc-ZsT">
-                                        <rect key="frame" x="342" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-YA-Lme">
+                                        <rect key="frame" x="293" y="0.0" width="144.5" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fn9-0y-yUh"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OVe-KU-xk9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-nw-onF">
-                                        <rect key="frame" x="513" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udv-SP-Mgq">
+                                        <rect key="frame" x="439.5" y="0.0" width="145" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W5k-uX-uJo"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bz7-fY-NbI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4T-31-IHe">
-                                        <rect key="frame" x="684" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k92-Lf-Krn">
+                                        <rect key="frame" x="586.5" y="0.0" width="144.5" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nqi-CM-LIk"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a3S-71-Vc9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-Qv-GVD">
-                                        <rect key="frame" x="855" y="0.0" width="169" height="698"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HD-7W-vCs">
+                                        <rect key="frame" x="733" y="0.0" width="144.5" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zqe-Ae-xQI"/>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jIO-W8-fe2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-BM-uzH">
+                                        <rect key="frame" x="879.5" y="0.0" width="144.5" height="698"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="makeMove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfv-G5-ZJC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,26 +75,27 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2bD-j2-E9u" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BlN-TG-tcg"/>
-                            <constraint firstItem="2bD-j2-E9u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZfW-TZ-aL7"/>
-                            <constraint firstItem="2bD-j2-E9u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nES-PD-8cG"/>
-                            <constraint firstAttribute="trailing" secondItem="2bD-j2-E9u" secondAttribute="trailing" id="tB8-jC-AoV"/>
+                            <constraint firstItem="87I-ts-vhK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lje-jf-Zt8"/>
+                            <constraint firstItem="87I-ts-vhK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hyB-hL-SCa"/>
+                            <constraint firstItem="87I-ts-vhK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sv3-Iu-0LY"/>
+                            <constraint firstAttribute="trailing" secondItem="87I-ts-vhK" secondAttribute="trailing" id="ztU-0Z-kR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="4v6-p7-mTh"/>
                     <connections>
-                        <outletCollection property="columnButtons" destination="y5w-2d-yr7" collectionClass="NSMutableArray" id="Q3Z-pd-FXa"/>
-                        <outletCollection property="columnButtons" destination="qJ1-Wb-nRc" collectionClass="NSMutableArray" id="jks-5B-xgL"/>
-                        <outletCollection property="columnButtons" destination="l4d-kc-ZsT" collectionClass="NSMutableArray" id="gO7-PR-omD"/>
-                        <outletCollection property="columnButtons" destination="GbM-nw-onF" collectionClass="NSMutableArray" id="kvp-Tk-QjL"/>
-                        <outletCollection property="columnButtons" destination="o4T-31-IHe" collectionClass="NSMutableArray" id="AXM-pg-ynd"/>
-                        <outletCollection property="columnButtons" destination="S0l-Qv-GVD" collectionClass="NSMutableArray" id="nem-o0-B3N"/>
+                        <outletCollection property="columnButtons" destination="O34-Q5-7Jz" collectionClass="NSMutableArray" id="CSU-hb-rcL"/>
+                        <outletCollection property="columnButtons" destination="xky-Gr-2De" collectionClass="NSMutableArray" id="vhw-em-y7j"/>
+                        <outletCollection property="columnButtons" destination="xgE-YA-Lme" collectionClass="NSMutableArray" id="e4R-wc-j9n"/>
+                        <outletCollection property="columnButtons" destination="Udv-SP-Mgq" collectionClass="NSMutableArray" id="uCD-AO-jRS"/>
+                        <outletCollection property="columnButtons" destination="k92-Lf-Krn" collectionClass="NSMutableArray" id="8k3-Wr-sO9"/>
+                        <outletCollection property="columnButtons" destination="4HD-7W-vCs" collectionClass="NSMutableArray" id="Xda-Ck-uKf"/>
+                        <outletCollection property="columnButtons" destination="e0y-BM-uzH" collectionClass="NSMutableArray" id="PI7-hO-2i7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="-548"/>
+            <point key="canvasLocation" x="843.75" y="-548.4375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dCb-nd-zSt">
