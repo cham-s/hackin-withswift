@@ -15,11 +15,14 @@ enum ChipColor: Int {
 }
 
 class Board: NSObject {
+    
     static var width = 7
     static var height = 6
     public var slots: [ChipColor] = []
+    public var currrentPlayer: Player
     
     override init() {
+        currrentPlayer = Player.allPlayers[0]
         for _ in 0..<Board.width * Board.height {
             slots.append(.none)
         }
