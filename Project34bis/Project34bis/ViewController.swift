@@ -8,13 +8,35 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     @IBOutlet var columnButtons: [UIButton]!
+    public var placedChips: [[UIView]] = []
+    public var board: Board!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        for _ in 0..<Board.width {
+            placedChips.append([UIView]())
+        }
+        
+        resetBoard()
     }
+    
+    func resetBoard() {
+        board = Board()
+        
+        for i in 0..<placedChips.count {
+            for chip in placedChips[i] {
+                chip.removeFromSuperview()
+            }
+            placedChips[i].removeAll(keepingCapacity: true)
+        }
+    }
+    
     @IBAction func makeMove(_ sender: UIButton) {
     }
 }
