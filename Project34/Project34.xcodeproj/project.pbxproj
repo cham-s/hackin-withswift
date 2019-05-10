@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C059F1E22849B7000C0DF20 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C059F1D22849B7000C0DF20 /* Board.swift */; };
+		0C059F202284AA9600C0DF20 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C059F1F2284AA9600C0DF20 /* Player.swift */; };
 		0C9C395C22834A2D008AA882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C395B22834A2D008AA882 /* AppDelegate.swift */; };
 		0C9C395E22834A2D008AA882 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C395D22834A2D008AA882 /* ViewController.swift */; };
 		0C9C396122834A2D008AA882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9C395F22834A2D008AA882 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		0C059F1D22849B7000C0DF20 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Project34/Board.swift; sourceTree = "<group>"; };
+		0C059F1F2284AA9600C0DF20 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Project34/Player.swift; sourceTree = "<group>"; };
 		0C9C395822834A2D008AA882 /* Project34.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project34.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9C395B22834A2D008AA882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9C395D22834A2D008AA882 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		0C9C394F22834A2D008AA882 = {
 			isa = PBXGroup;
 			children = (
+				0C059F1F2284AA9600C0DF20 /* Player.swift */,
 				0C059F1D22849B7000C0DF20 /* Board.swift */,
 				0C9C395A22834A2D008AA882 /* Project34 */,
 				0C9C395922834A2D008AA882 /* Products */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C059F202284AA9600C0DF20 /* Player.swift in Sources */,
 				0C9C395E22834A2D008AA882 /* ViewController.swift in Sources */,
 				0C9C395C22834A2D008AA882 /* AppDelegate.swift in Sources */,
 				0C059F1E22849B7000C0DF20 /* Board.swift in Sources */,

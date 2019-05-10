@@ -52,4 +52,12 @@ class Board: NSObject {
             set(chip: chip, in: column, row: row)
         }
     }
+    
+    func isFull() -> Bool {
+        return false
+    }
+    
+    func isWin(for player: Player) -> Bool {
+        return false
+    }
 }
