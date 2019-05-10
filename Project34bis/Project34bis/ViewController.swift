@@ -37,6 +37,11 @@ class ViewController: UIViewController {
         }
     }
     
+    func addChip(inColumn column: Int, row: Int, color: UIColor) {
+        let button = columnButtons[column]
+        let size = min(button.frame, <#T##y: Comparable##Comparable#>)
+    }
+    
     @IBAction func makeMove(_ sender: UIButton) {
     }
 }
