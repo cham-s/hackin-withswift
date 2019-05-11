@@ -24,7 +24,6 @@ class Player: NSObject, GKGameModelPlayer {
     
     static var allPlayers = [Player(chip: .red), Player(chip: .black)]
     
-    
     init(chip: ChipColor) {
         self.chip = chip
         self.playerId = chip.rawValue
