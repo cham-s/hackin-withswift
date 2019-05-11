@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C132BA422874BCB0057AE5A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C132BA322874BCB0057AE5A /* Player.swift */; };
 		0CFEF8742285EC46003EF805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF8732285EC46003EF805 /* AppDelegate.swift */; };
 		0CFEF8762285EC46003EF805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF8752285EC46003EF805 /* ViewController.swift */; };
 		0CFEF8792285EC46003EF805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEF8772285EC46003EF805 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C132BA322874BCB0057AE5A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Project34bis/Player.swift; sourceTree = "<group>"; };
 		0CFEF8702285EC46003EF805 /* Project34bis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project34bis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFEF8732285EC46003EF805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CFEF8752285EC46003EF805 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		0CFEF8672285EC46003EF805 = {
 			isa = PBXGroup;
 			children = (
+				0C132BA322874BCB0057AE5A /* Player.swift */,
 				0CFEF8852285F275003EF805 /* Board.swift */,
 				0CFEF8722285EC46003EF805 /* Project34bis */,
 				0CFEF8712285EC46003EF805 /* Products */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C132BA422874BCB0057AE5A /* Player.swift in Sources */,
 				0CFEF8762285EC46003EF805 /* ViewController.swift in Sources */,
 				0CFEF8742285EC46003EF805 /* AppDelegate.swift in Sources */,
 				0CFEF8862285F275003EF805 /* Board.swift in Sources */,
