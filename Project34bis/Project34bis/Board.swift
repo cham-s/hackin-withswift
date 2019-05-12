@@ -58,7 +58,7 @@ class Board: NSObject {
     
     func isFull() -> Bool {
         for column in 0..<Board.width {
-            guard canMove(in: column) else { return false }
+            if canMove(in: column) { return false }
         }
         return true
     }
@@ -93,11 +93,16 @@ class Board: NSObject {
         if col + (moveX * 3) < 0 { return false }
         if col + (moveX * 3) >= Board.width { return false }
         
-        if chip(inColumn: col, row: row) != initialChip { return false }
-        if chip(inColumn: col + (moveX * 2), row: row + (moveY * 2)) != initialChip { return false }
-        if chip(inColumn: col + (moveX * 3), row: row + (moveY * 3)) != initialChip { return false }
+        let first = chip(inColumn: col, row: row)
+        let second = chip(inColumn: col + (moveX * 2), row: row + (moveY * 2))
+        let third = chip(inColumn: col + (moveX * 3), row: row + (moveY * 3))
+        let neighbors = [first, second, third]
         
+        for n in neighbors {
+            if n != initialChip {
+                return false
+            }
+        }
         return true
-        
     }
 }

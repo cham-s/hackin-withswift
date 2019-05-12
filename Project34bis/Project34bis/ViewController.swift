@@ -110,6 +110,7 @@ class ViewController: UIViewController {
         
         if let row = board.nextEmptySlot(in: column) {
             board.add(chip: board.currentPlayer.chip, in: column)
+            print("Chip added chip \(board.currentPlayer.chip)")
             addChip(inColumn: column, row: row, color: board.currentPlayer.color)
             continueGame()
         }
