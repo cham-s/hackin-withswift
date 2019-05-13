@@ -81,7 +81,9 @@ class ViewController: UIViewController {
     func continueGame() {
         var gameOverTitle: String? = nil
         
-        if board.isWin(for: board.currentPlayer) {
+        let hasWon = board.isWin(for: board.currentPlayer)
+        
+        if hasWon {
             gameOverTitle = "\(board.currentPlayer.name) Wins"
         } else if board.isFull() {
             gameOverTitle = "Draw!"
