@@ -93,9 +93,10 @@ class Board: NSObject {
         if col + (moveX * 3) >= Board.width { return false }
         
         let first = chip(inColumn: col, row: row)
-        let second = chip(inColumn: col + (moveX * 2), row: row + (moveY * 2))
-        let third = chip(inColumn: col + (moveX * 3), row: row + (moveY * 3))
-        let neighbors = [first, second, third]
+        let second = chip(inColumn: col + moveX, row: row + moveY)
+        let third = chip(inColumn: col + (moveX * 2), row: row + (moveY * 2))
+        let fourth = chip(inColumn: col + (moveX * 3), row: row + (moveY * 3))
+        let neighbors = [first, second, third, fourth]
         
         for n in neighbors {
             if n != initialChip {
