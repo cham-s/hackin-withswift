@@ -18,10 +18,14 @@ class GameScene: SKScene {
         for i in 0...7 {
             let band = SKSpriteNode(color: UIColor.white, size: CGSize(width: 10, height: 600))
             band.position = CGPoint(x: (i * 120) + 40, y: 600 / 2)
+            band.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 600))
+            band.physicsBody?.isDynamic = false
             backgroundColor = UIColor.gray
+            
             addChild(band)
         }
         configureLabels()
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
     }
     
     func labelFor(text: String) -> SKLabelNode {
@@ -39,5 +43,16 @@ class GameScene: SKScene {
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 980, y: 700)
         addChild(scoreLabel)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
+            chip.fillColor = UIColor.red
+            chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
+            chip.position = location
+            addChild(chip)
+        }
     }
 }
