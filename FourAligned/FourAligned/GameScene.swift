@@ -15,6 +15,13 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        for i in 0...7 {
+            let band = SKSpriteNode(color: UIColor.white, size: CGSize(width: 10, height: 600))
+            band.position = CGPoint(x: (i * 120) + 40, y: 600 / 2)
+            backgroundColor = UIColor.gray
+            addChild(band)
+        }
+        configureLabels()
     }
     
     func labelFor(text: String) -> SKLabelNode {
@@ -25,7 +32,7 @@ class GameScene: SKScene {
     
     func configureLabels() {
         currentPlayerLabel = labelFor(text: "Player's Turn: ")
-        currentPlayerLabel.position = CGPoint(x: 10, y: 760)
+        currentPlayerLabel.position = CGPoint(x: 150, y: 700)
         addChild(currentPlayerLabel)
         
         scoreLabel = labelFor(text: "Score: 0")
