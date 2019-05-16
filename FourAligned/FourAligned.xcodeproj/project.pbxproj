@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C07A53D228DD61100425756 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07A53C228DD61100425756 /* Board.swift */; };
 		0C07A545228DE0CD00425756 /* FourAlignedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07A544228DE0CD00425756 /* FourAlignedTests.swift */; };
+		0C07A54C228DE23700425756 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07A53C228DD61100425756 /* Board.swift */; };
 		0C307948228B3B6700C6D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C307947228B3B6700C6D64A /* AppDelegate.swift */; };
 		0C30794A228B3B6700C6D64A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C307949228B3B6700C6D64A /* GameScene.sks */; };
 		0C30794E228B3B6700C6D64A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C30794D228B3B6700C6D64A /* GameScene.swift */; };
@@ -207,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C07A54C228DE23700425756 /* Board.swift in Sources */,
 				0C07A545228DE0CD00425756 /* FourAlignedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,9 @@ struct Board {
     
     mutating func set(chip: ChipColor, atColumn column: Int, andRow row: Int) {
         let index = rowIndex(forColumn: column, andRow: row)
-        chips[index] = chip
+        if chips[index] == nil {
+            chips[index] = chip
+        }
     }
     
     private func columnIndex(fromExternalColumn column: Int) -> Index {
