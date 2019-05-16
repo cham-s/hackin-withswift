@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C07A53D228DD61100425756 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07A53C228DD61100425756 /* Board.swift */; };
+		0C07A545228DE0CD00425756 /* FourAlignedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C07A544228DE0CD00425756 /* FourAlignedTests.swift */; };
 		0C307948228B3B6700C6D64A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C307947228B3B6700C6D64A /* AppDelegate.swift */; };
 		0C30794A228B3B6700C6D64A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C307949228B3B6700C6D64A /* GameScene.sks */; };
 		0C30794E228B3B6700C6D64A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C30794D228B3B6700C6D64A /* GameScene.swift */; };
@@ -17,8 +18,21 @@
 		0C307958228B3B6900C6D64A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C307956228B3B6900C6D64A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0C07A547228DE0CD00425756 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C30793C228B3B6700C6D64A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C307943228B3B6700C6D64A;
+			remoteInfo = FourAligned;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0C07A53C228DD61100425756 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		0C07A542228DE0CD00425756 /* FourAlignedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourAlignedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C07A544228DE0CD00425756 /* FourAlignedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourAlignedTests.swift; sourceTree = "<group>"; };
+		0C07A546228DE0CD00425756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C307944228B3B6700C6D64A /* FourAligned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourAligned.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C307947228B3B6700C6D64A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C307949228B3B6700C6D64A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -31,6 +45,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0C07A53F228DE0CD00425756 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0C307941228B3B6700C6D64A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +62,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C07A543228DE0CD00425756 /* FourAlignedTests */ = {
+			isa = PBXGroup;
+			children = (
+				0C07A544228DE0CD00425756 /* FourAlignedTests.swift */,
+				0C07A546228DE0CD00425756 /* Info.plist */,
+			);
+			path = FourAlignedTests;
+			sourceTree = "<group>";
+		};
 		0C30793B228B3B6700C6D64A = {
 			isa = PBXGroup;
 			children = (
 				0C307946228B3B6700C6D64A /* FourAligned */,
+				0C07A543228DE0CD00425756 /* FourAlignedTests */,
 				0C307945228B3B6700C6D64A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0C307944228B3B6700C6D64A /* FourAligned.app */,
+				0C07A542228DE0CD00425756 /* FourAlignedTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +108,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0C07A541228DE0CD00425756 /* FourAlignedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C07A549228DE0CD00425756 /* Build configuration list for PBXNativeTarget "FourAlignedTests" */;
+			buildPhases = (
+				0C07A53E228DE0CD00425756 /* Sources */,
+				0C07A53F228DE0CD00425756 /* Frameworks */,
+				0C07A540228DE0CD00425756 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C07A548228DE0CD00425756 /* PBXTargetDependency */,
+			);
+			name = FourAlignedTests;
+			productName = FourAlignedTests;
+			productReference = 0C07A542228DE0CD00425756 /* FourAlignedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0C307943228B3B6700C6D64A /* FourAligned */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C30795C228B3B6900C6D64A /* Build configuration list for PBXNativeTarget "FourAligned" */;
@@ -103,6 +153,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Chams;
 				TargetAttributes = {
+					0C07A541228DE0CD00425756 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 0C307943228B3B6700C6D64A;
+					};
 					0C307943228B3B6700C6D64A = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -122,11 +176,19 @@
 			projectRoot = "";
 			targets = (
 				0C307943228B3B6700C6D64A /* FourAligned */,
+				0C07A541228DE0CD00425756 /* FourAlignedTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0C07A540228DE0CD00425756 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0C307942228B3B6700C6D64A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +203,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0C07A53E228DE0CD00425756 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C07A545228DE0CD00425756 /* FourAlignedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0C307940228B3B6700C6D64A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +223,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0C07A548228DE0CD00425756 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C307943228B3B6700C6D64A /* FourAligned */;
+			targetProxy = 0C07A547228DE0CD00425756 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0C307951228B3B6700C6D64A /* Main.storyboard */ = {
@@ -174,6 +252,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0C07A54A228DE0CD00425756 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JD3J5GCV9C;
+				INFOPLIST_FILE = FourAlignedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chams.FourAlignedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FourAligned.app/FourAligned";
+			};
+			name = Debug;
+		};
+		0C07A54B228DE0CD00425756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JD3J5GCV9C;
+				INFOPLIST_FILE = FourAlignedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chams.FourAlignedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FourAligned.app/FourAligned";
+			};
+			name = Release;
+		};
 		0C30795A228B3B6900C6D64A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,6 +447,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C07A549228DE0CD00425756 /* Build configuration list for PBXNativeTarget "FourAlignedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C07A54A228DE0CD00425756 /* Debug */,
+				0C07A54B228DE0CD00425756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0C30793F228B3B6700C6D64A /* Build configuration list for PBXProject "FourAligned" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

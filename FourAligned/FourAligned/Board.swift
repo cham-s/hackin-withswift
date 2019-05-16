@@ -48,7 +48,11 @@ struct Board {
     
     func nextAvailableRow(fromColumn column: Int) -> Int? {
         let startIndex = columnIndex(fromExternalColumn: column)
-        let subChips = chips[startIndex..<Board.height]
-        return (0..<Board.height).first { subChips[$0] != nil }
+        let col = chips[startIndex..<Board.height]
+        return (0..<Board.height).first { col[$0] != nil }
+    }
+    
+    mutating func add(chip: ChipColor, toColumn column: Int, andRow row: Int) {
+        set(chip: chip, atColumn: column, andRow: row)
     }
 }
