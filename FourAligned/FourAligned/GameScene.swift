@@ -16,9 +16,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         for i in 0...7 {
-            let band = SKSpriteNode(color: UIColor.white, size: CGSize(width: 10, height: 600))
-            band.position = CGPoint(x: (i * 120) + 40, y: 600 / 2)
-            band.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 600))
+            let band = SKSpriteNode(color: UIColor.white, size: CGSize(width: 10, height: 660))
+            band.position = CGPoint(x: (i * 120) + 85, y: 660 / 2)
+            band.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 660))
             band.physicsBody?.isDynamic = false
             backgroundColor = UIColor.gray
             
@@ -47,12 +47,15 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            let location = touch.location(in: self)
-            let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
-            chip.fillColor = UIColor.red
-            chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
-            chip.position = location
-            addChild(chip)
+            let currentLocation = touch.location(in: self)
+            if currentLocation.x > 85 && currentLocation.x < ((7 * 120) + 85) &&
+                currentLocation.y < 660 {
+                let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
+                chip.fillColor = UIColor.red
+                chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
+                chip.position = currentLocation
+                addChild(chip)
+            }
         }
     }
 }
