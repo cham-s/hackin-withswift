@@ -50,10 +50,12 @@ struct Board {
     
     func nextAvailableRow(fromColumn column: Int) -> Int? {
         let startIndex = columnIndex(fromExternalColumn: column)
-        let col = chips[startIndex..<Board.height]
+        let endIndex = startIndex + Board.height
+        let col = chips[startIndex..<endIndex]
         for (index, row) in col.enumerated() {
-            guard row != nil else { continue }
-            return index
+            if row == nil {
+                return index
+            }
         }
         return nil
     }

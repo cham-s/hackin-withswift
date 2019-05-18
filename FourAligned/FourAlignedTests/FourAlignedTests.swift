@@ -36,11 +36,12 @@ class FourAlignedTests: XCTestCase {
     }
     
     func testNextAvailableRow() {
-        let nextAvailableRow = board.nextAvailableRow(fromColumn: 0)
+        //let nextAvailableRow = board.nextAvailableRow(fromColumn: 0)
         let row2 = board.nextAvailableRow(fromColumn: 1)
         
-        XCTAssertTrue(nextAvailableRow == 1)
-        XCTAssertTrue(row2 == 1)
+        //XCTAssertEqual(1, nextAvailableRow)
+        XCTAssertEqual(1, row2)
+        
     }
 
     func testPerformanceExample() {
