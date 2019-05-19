@@ -16,7 +16,13 @@ class FourAlignedTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         board = Board()
         board.set(chip: .red, atColumn: 0, andRow: 0)
+        board.set(chip: .red, atColumn: 0, andRow: 1)
+        board.set(chip: .red, atColumn: 0, andRow: 2)
+        board.set(chip: .red, atColumn: 0, andRow: 3)
+        board.set(chip: .red, atColumn: 0, andRow: 4)
+        board.set(chip: .red, atColumn: 0, andRow: 5)
         board.set(chip: .black, atColumn: 1, andRow: 0)
+        board.add(chip: .red, toColumn: 2, andRow: 0)
     }
 
     override func tearDown() {
@@ -30,18 +36,18 @@ class FourAlignedTests: XCTestCase {
     }
     
     func testSetChip() {
-        
         XCTAssertTrue(board.chip(atColumn: 0, row: 0)! == ChipColor.red)
         XCTAssertTrue(board.chip(atColumn: 1, row: 0)! == ChipColor.black)
     }
     
     func testNextAvailableRow() {
-        //let nextAvailableRow = board.nextAvailableRow(fromColumn: 0)
+        let nextAvailableRow = board.nextAvailableRow(fromColumn: 0)
         let row2 = board.nextAvailableRow(fromColumn: 1)
+        let row3 = board.nextAvailableRow(fromColumn: 2)
         
-        //XCTAssertEqual(1, nextAvailableRow)
+        XCTAssertEqual(nil, nextAvailableRow)
         XCTAssertEqual(1, row2)
-        
+        XCTAssertEqual(1, row3)
     }
 
     func testPerformanceExample() {
