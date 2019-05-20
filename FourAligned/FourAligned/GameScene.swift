@@ -16,7 +16,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         let borderSize = CGSize(width: 10, height: 660)
-        let bandSize = CGSize(width: 110, height: 660)
+        //let bandSize = CGSize(width: 110, height: 660)
         
         for i in 0...Board.width {
             let border = SKSpriteNode(color: UIColor.white, size: borderSize)
@@ -26,14 +26,13 @@ class GameScene: SKScene {
             backgroundColor = UIColor.gray
             addChild(border)
             
-            guard i < Board.width else { continue }
-            let band = SKSpriteNode(color: UIColor.blue, size: bandSize)
-            band.position = CGPoint(x: border.position.x +
-                ((border.size.width / 2) + (band.size.width / 2)) , y: 660 / 2)
-            band.physicsBody = SKPhysicsBody(rectangleOf: bandSize)
-            band.physicsBody?.isDynamic = false
-            band.zPosition = 1000
-            addChild(band)
+//            guard i < Board.width else { continue }
+//            let band = SKSpriteNode(color: UIColor.blue, size: bandSize)
+//            band.position = CGPoint(x: border.position.x +
+//                ((border.size.width / 2) + (band.size.width / 2)) , y: 660 / 2)
+//            band.physicsBody = SKPhysicsBody(rectangleOf: bandSize)
+//            band.physicsBody?.isDynamic = false
+//            addChild(band)
         }
         configureLabels()
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -59,15 +58,21 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
-            if currentLocation.x > 85 && currentLocation.x < ((7 * 120) + 85) &&
-                currentLocation.y < 660 {
-                let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
-                chip.fillColor = UIColor.red
-                chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
-                chip.position = currentLocation
-                chip.zPosition = 999
-                addChild(chip)
+            for i in 0...Board.width {
+                let rowRange = ((i * 120) + 85)..<((i + 1) * 120)
+                if rowRange ~= Int(currentLocation.x) {
+                    print("touched row \(i)")
+                }
             }
+//            if currentLocation.x > 85 && currentLocation.x < ((7 * 120) + 85) &&
+//                currentLocation.y < 660 {
+//                let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
+//                chip.fillColor = UIColor.red
+//                chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
+//                chip.position = currentLocation
+//
+//                addChild(chip)
+//            }
         }
     }
 }
