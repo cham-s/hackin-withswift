@@ -15,19 +15,19 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        for i in 0...7 {
+        for i in 0...Board.width {
             let border = SKSpriteNode(color: UIColor.white, size: CGSize(width: 10, height: 660))
             border.position = CGPoint(x: (i * 120) + 85, y: 660 / 2)
             border.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 660))
             border.physicsBody?.isDynamic = false
             backgroundColor = UIColor.gray
+            addChild(border)
             
-            let band = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 110, height: 660))
-            band.position = CGPoint(x: (i * 120) + 95, y: 660 / 2)
+            guard i < Board.width else { continue }
+            let band = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 120, height: 660))
+            band.position = CGPoint(x: border.position.x + ((border.size.width / 2) + (band.size.width / 2)) , y: 660 / 2)
             band.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 120, height: 660))
             band.physicsBody?.isDynamic = false
-            
-            addChild(border)
             addChild(band)
         }
         configureLabels()
