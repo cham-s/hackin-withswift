@@ -55,6 +55,19 @@ class GameScene: SKScene {
         addChild(scoreLabel)
     }
     
+    func row(forTouches touches: Set<UITouch>) -> Int? {
+        if let touch = touches.first {
+            let currentLocation = touch.location(in: self)
+            for i in 0...Board.width {
+                let rowRange = ((i * 120) + 85)..<((i + 1) * 120)
+                if rowRange ~= Int(currentLocation.x) {
+                    return i
+                }
+            }
+        }
+        return nil
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
