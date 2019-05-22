@@ -73,7 +73,15 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let row = row(forTouches: touches) {
-            print("row: \(row)")
+            // print("row: \(row)")
+            let range = rowRanges[row]
+            let xPostion = (range.lowerBound + range.upperBound) / 2
+            let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
+            chip.fillColor = UIColor.red
+            chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
+            chip.position = CGPoint(x: xPostion, y: GameScene.borderSize.height)
+
+            addChild(chip)
         }
     }
     
