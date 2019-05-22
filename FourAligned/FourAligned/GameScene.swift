@@ -73,7 +73,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let row = row(forTouches: touches) {
-            // print("row: \(row)")
+        
             let range = rowRanges[row]
             let xPostion = (range.lowerBound + range.upperBound) / 2
             let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
@@ -84,19 +84,4 @@ class GameScene: SKScene {
             addChild(chip)
         }
     }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            let currentLocation = touch.location(in: self)
-//            if currentLocation.x > 85 && currentLocation.x < ((7 * 120) + 85) &&
-//                currentLocation.y < 660 {
-//                let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
-//                chip.fillColor = UIColor.red
-//                chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
-//                chip.position = currentLocation
-//
-//                addChild(chip)
-//            }
-//        }
-//    }
 }

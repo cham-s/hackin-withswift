@@ -60,6 +60,23 @@ struct Board {
         return nil
     }
     
+    func canMove(inColumn column: Int) -> Bool {
+        return nextAvailableRow(fromColumn: column) != nil
+    }
+    
+    func isFull() -> Bool {
+        for col in 0..<Board.width {
+            if canMove(inColumn: col) {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func isWin() -> Bool {
+        return false
+    }
+    
     mutating func add(chip: ChipColor, toColumn column: Int, andRow row: Int) {
         set(chip: chip, atColumn: column, andRow: row)
     }
