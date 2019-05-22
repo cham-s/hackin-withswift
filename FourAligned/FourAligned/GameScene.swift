@@ -12,17 +12,27 @@ import GameplayKit
 class GameScene: SKScene {
     private var currentPlayerLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
-    private let rowSpacing: CGFloat = 120.0
-    private let leftPadding: CGFloat = 85.0
-    private let borderSize = CGSize(width: 10, height: 660)
+    static let rowSpacing: CGFloat = 120.0
+    static let leftPadding: CGFloat = 85.0
+    static let borderSize = CGSize(width: 10, height: 660)
+    private var rowRanges: [ClosedRange<CGFloat>] = {
+        var ranges: [ClosedRange<CGFloat>] = []
+        for i in 0...Board.width {
+            let start = (CGFloat(i) * GameScene.rowSpacing) + GameScene.leftPadding + (GameScene.borderSize.width / 2)
+            let end = start + rowSpacing
+            let range = start...end
+            ranges.append(range)
+        }
+        return ranges
+    }()
     
     override func didMove(to view: SKView) {
         
         for i in 0...Board.width {
-            let border = SKSpriteNode(color: UIColor.white, size: borderSize)
-            border.position = CGPoint(x: (CGFloat(i) * rowSpacing) + leftPadding,
-                                      y: borderSize.height / 2)
-            border.physicsBody = SKPhysicsBody(rectangleOf: borderSize)
+            let border = SKSpriteNode(color: UIColor.white, size: GameScene.borderSize)
+            border.position = CGPoint(x: (CGFloat(i) * GameScene.rowSpacing) + GameScene.leftPadding,
+                                      y: GameScene.borderSize.height / 2)
+            border.physicsBody = SKPhysicsBody(rectangleOf: GameScene.borderSize)
             border.physicsBody?.isDynamic = false
             backgroundColor = UIColor.gray
             addChild(border)
@@ -51,13 +61,10 @@ class GameScene: SKScene {
     func row(forTouches touches: Set<UITouch>) -> Int? {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
-            guard currentLocation.y < borderSize.height else { return nil }
-            for i in 0...Board.width {
-                let start = (CGFloat(i) * rowSpacing) + leftPadding + (borderSize.width / 2)
-                let end = start + rowSpacing
-                let range = start...end
-                if range ~= currentLocation.x && i < Board.width {
-                    return i
+            guard currentLocation.y < GameScene.borderSize.height else { return nil }
+            for (row, range) in rowRanges.enumerated() {
+                if range ~= currentLocation.x && row < Board.width {
+                    return row
                 }
             }
         }
