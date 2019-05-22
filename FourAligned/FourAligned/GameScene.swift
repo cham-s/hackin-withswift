@@ -15,11 +15,11 @@ class GameScene: SKScene {
     static let rowSpacing: CGFloat = 120.0
     static let leftPadding: CGFloat = 85.0
     static let borderSize = CGSize(width: 10, height: 660)
-    private var rowRanges: [ClosedRange<CGFloat>] = {
+    private lazy var rowRanges: [ClosedRange<CGFloat>] = {
         var ranges: [ClosedRange<CGFloat>] = []
         for i in 0...Board.width {
             let start = (CGFloat(i) * GameScene.rowSpacing) + GameScene.leftPadding + (GameScene.borderSize.width / 2)
-            let end = start + rowSpacing
+            let end = start + GameScene.rowSpacing
             let range = start...end
             ranges.append(range)
         }
