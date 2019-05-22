@@ -12,9 +12,11 @@ import GameplayKit
 class GameScene: SKScene {
     private var currentPlayerLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
+    
     static let rowSpacing: CGFloat = 120.0
     static let leftPadding: CGFloat = 85.0
     static let borderSize = CGSize(width: 10, height: 660)
+    
     private lazy var rowRanges: [ClosedRange<CGFloat>] = {
         var ranges: [ClosedRange<CGFloat>] = []
         for i in 0...Board.width {
@@ -25,6 +27,9 @@ class GameScene: SKScene {
         }
         return ranges
     }()
+    
+    private var board: Board!
+    private var chipNodes: [SKShapeNode]!
     
     override func didMove(to view: SKView) {
         
@@ -39,6 +44,12 @@ class GameScene: SKScene {
         }
         configureLabels()
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        board = Board()
+        startGame()
+    }
+    
+    func startGame() {
+        chipNodes = [SKShapeNode]()
     }
     
     func labelFor(text: String) -> SKLabelNode {
@@ -58,7 +69,7 @@ class GameScene: SKScene {
         addChild(scoreLabel)
     }
     
-    func row(forTouches touches: Set<UITouch>) -> Int? {
+    func col(forTouches touches: Set<UITouch>) -> Int? {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
             guard currentLocation.y < GameScene.borderSize.height else { return nil }
@@ -71,17 +82,22 @@ class GameScene: SKScene {
         return nil
     }
     
+    func addChip(color: UIColor, inColumn column: Int) {
+        let range = rowRanges[column]
+        let xPostion = (range.lowerBound + range.upperBound) / 2
+        let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
+        chip.fillColor = color
+        chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
+        chip.position = CGPoint(x: xPostion, y: GameScene.borderSize.height)
+        chipNodes.append(chip)
+        addChild(chip)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let row = row(forTouches: touches) {
-        
-            let range = rowRanges[row]
-            let xPostion = (range.lowerBound + range.upperBound) / 2
-            let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
-            chip.fillColor = UIColor.red
-            chip.physicsBody = SKPhysicsBody(circleOfRadius: 110 / 2.0)
-            chip.position = CGPoint(x: xPostion, y: GameScene.borderSize.height)
-
-            addChild(chip)
+        if let col = col(forTouches: touches) {
+            guard let row =  board.nextAvailableRow(fromColumn: col) else { return }
+            board.add(chip: .red, toColumn: col, andRow: row)
+            addChip(color: .red, inColumn: col)
         }
     }
 }
