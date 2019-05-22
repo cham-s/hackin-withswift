@@ -12,27 +12,22 @@ import GameplayKit
 class GameScene: SKScene {
     private var currentPlayerLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
+    private let rowSpacing: CGFloat = 120.0
+    private let borderWidth: CGFloat = 10.0
+    private let leftPadding: CGFloat = 85.0
     
     override func didMove(to view: SKView) {
         
         let borderSize = CGSize(width: 10, height: 660)
-        //let bandSize = CGSize(width: 110, height: 660)
         
         for i in 0...Board.width {
             let border = SKSpriteNode(color: UIColor.white, size: borderSize)
-            border.position = CGPoint(x: (i * 120) + 85, y: 660 / 2)
+            border.position = CGPoint(x: (CGFloat(i) * rowSpacing) + leftPadding,
+                                      y: borderSize.height / 2)
             border.physicsBody = SKPhysicsBody(rectangleOf: borderSize)
             border.physicsBody?.isDynamic = false
             backgroundColor = UIColor.gray
             addChild(border)
-            
-//            guard i < Board.width else { continue }
-//            let band = SKSpriteNode(color: UIColor.blue, size: bandSize)
-//            band.position = CGPoint(x: border.position.x +
-//                ((border.size.width / 2) + (band.size.width / 2)) , y: 660 / 2)
-//            band.physicsBody = SKPhysicsBody(rectangleOf: bandSize)
-//            band.physicsBody?.isDynamic = false
-//            addChild(band)
         }
         configureLabels()
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -59,8 +54,10 @@ class GameScene: SKScene {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
             for i in 0...Board.width {
-                let rowRange = ((i * 120) + 85)..<((i + 1) * 120)
-                if rowRange ~= Int(currentLocation.x) {
+                let start = (CGFloat(i) * rowSpacing) + leftPadding + (borderWidth / 2)
+                let end = start + rowSpacing
+                let range = start...end
+                if range ~= currentLocation.x && i < Board.width {
                     return i
                 }
             }
@@ -69,14 +66,14 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let currentLocation = touch.location(in: self)
-            for i in 0...Board.width {
-                let rowRange = ((i * 120) + 85)..<((i + 1) * 120)
-                if rowRange ~= Int(currentLocation.x) {
-                    print("touched row \(i)")
-                }
-            }
+        if let row = row(forTouches: touches) {
+            print("row: \(row)")
+        }
+    }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            let currentLocation = touch.location(in: self)
 //            if currentLocation.x > 85 && currentLocation.x < ((7 * 120) + 85) &&
 //                currentLocation.y < 660 {
 //                let chip = SKShapeNode(circleOfRadius: 110 / 2.0)
@@ -86,6 +83,6 @@ class GameScene: SKScene {
 //
 //                addChild(chip)
 //            }
-        }
-    }
+//        }
+//    }
 }
