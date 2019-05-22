@@ -13,12 +13,10 @@ class GameScene: SKScene {
     private var currentPlayerLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     private let rowSpacing: CGFloat = 120.0
-    private let borderWidth: CGFloat = 10.0
     private let leftPadding: CGFloat = 85.0
+    private let borderSize = CGSize(width: 10, height: 660)
     
     override func didMove(to view: SKView) {
-        
-        let borderSize = CGSize(width: 10, height: 660)
         
         for i in 0...Board.width {
             let border = SKSpriteNode(color: UIColor.white, size: borderSize)
@@ -53,8 +51,9 @@ class GameScene: SKScene {
     func row(forTouches touches: Set<UITouch>) -> Int? {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
+            guard currentLocation.y < borderSize.height else { return nil }
             for i in 0...Board.width {
-                let start = (CGFloat(i) * rowSpacing) + leftPadding + (borderWidth / 2)
+                let start = (CGFloat(i) * rowSpacing) + leftPadding + (borderSize.width / 2)
                 let end = start + rowSpacing
                 let range = start...end
                 if range ~= currentLocation.x && i < Board.width {
