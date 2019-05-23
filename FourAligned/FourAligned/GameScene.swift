@@ -30,6 +30,7 @@ class GameScene: SKScene {
     
     private var board: Board!
     private var chipNodes: [SKShapeNode]!
+    private var currentPlayer: Player!
     
     override func didMove(to view: SKView) {
         
@@ -50,6 +51,26 @@ class GameScene: SKScene {
     
     func startGame() {
         chipNodes = [SKShapeNode]()
+        currentPlayer = Player(chip: .red)
+    }
+    
+    func resetGame() {
+        chipNodes.forEach { $0.removeFromParent() }
+        startGame()
+    }
+    
+    func continueGame() {
+        if board.isFull() {
+            // TODO: change to sklabel
+            print("Draw!")
+        } else if board.isWin() {
+            print("\(currentPlayer.name) WIN!")
+        } else {
+            currentPlayer = currentPlayer.opponent
+            return
+        }
+        
+        
     }
     
     func labelFor(text: String) -> SKLabelNode {
@@ -97,7 +118,8 @@ class GameScene: SKScene {
         if let col = col(forTouches: touches) {
             guard let row =  board.nextAvailableRow(fromColumn: col) else { return }
             board.add(chip: .red, toColumn: col, andRow: row)
-            addChip(color: .red, inColumn: col)
+            addChip(color: currentPlayer.chipColor, inColumn: col)
+            continueGame()
         }
     }
 }
