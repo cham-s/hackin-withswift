@@ -13,7 +13,7 @@ class GameScene: SKScene {
     private var currentPlayerLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     
-    static let rowSpacing: CGFloat = 120.0
+    static let rowSpacing: CGFloat = 121.0
     static let leftPadding: CGFloat = 85.0
     static let borderSize = CGSize(width: 10, height: 660)
     
@@ -45,17 +45,18 @@ class GameScene: SKScene {
         }
         configureLabels()
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-        board = Board()
         startGame()
     }
     
     func startGame() {
         chipNodes = [SKShapeNode]()
         currentPlayer = Player(chip: .red)
+        board = Board()
     }
     
     func resetGame() {
         chipNodes.forEach { $0.removeFromParent() }
+        
         startGame()
     }
     
@@ -69,7 +70,7 @@ class GameScene: SKScene {
             currentPlayer = currentPlayer.opponent
             return
         }
-        
+        resetGame()
         
     }
     
