@@ -64,10 +64,6 @@ struct Board {
         return nextAvailableRow(fromColumn: column) != nil
     }
     
-    mutating func reset() {
-        chips = [ChipColor]()
-    }
-    
     func isFull() -> Bool {
         for col in 0..<Board.width {
             if canMove(inColumn: col) {
@@ -78,6 +74,13 @@ struct Board {
     }
     
     func isWin() -> Bool {
+        /* TODO: check the whole board
+         - check boundaries
+         - check vertical four
+         - check horizontal four
+         - check diagonal four
+         - if all corresponds to current chip color it's a win.
+        */
         return false
     }
     
