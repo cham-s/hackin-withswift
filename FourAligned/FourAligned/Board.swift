@@ -84,6 +84,10 @@ struct Board {
         return false
     }
     
+    func isAligned(initialChip: ChipColor, column: Int, row: Int) -> Bool {
+        return false
+    }
+    
     mutating func add(chip: ChipColor, toColumn column: Int, andRow row: Int) {
         set(chip: chip, atColumn: column, andRow: row)
     }
