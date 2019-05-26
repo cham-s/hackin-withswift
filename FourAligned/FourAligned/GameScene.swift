@@ -70,8 +70,7 @@ class GameScene: SKScene {
             currentPlayer = currentPlayer.opponent
             return
         }
-        resetGame()
-        
+        //resetGame()
     }
     
     func labelFor(text: String) -> SKLabelNode {

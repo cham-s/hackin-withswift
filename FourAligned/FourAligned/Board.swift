@@ -81,11 +81,25 @@ struct Board {
          - check diagonal four
          - if all corresponds to current chip color it's a win.
         */
+        
+        for col in 0..<Board.width {
+            for row in 0..<Board.height {
+                if let initialChip = chip(atColumn: col, row: row) {
+                    if isAligned(initialChip: initialChip, column: col, row: row, moveX: 1, moveY: 0) { return true }
+                    if isAligned(initialChip: initialChip, column: col, row: row, moveX: 0, moveY: 1) { return true }
+                    if isAligned(initialChip: initialChip, column: col, row: row, moveX: 1, moveY: 1) { return true }
+                }
+            }
+        }
         return false
     }
     
-    func isAligned(initialChip: ChipColor, column: Int, row: Int) -> Bool {
-        return false
+    func isAligned(initialChip: ChipColor, column: Int, row: Int, moveX: Int, moveY: Int) -> Bool {
+        if chip(atColumn: column + (moveX * 0), row: row + (moveY * 0)) != initialChip { return false }
+        if chip(atColumn: column + (moveX * 1), row: row + (moveY * 1)) != initialChip { return false }
+        if chip(atColumn: column + (moveX * 2), row: row + (moveY * 2)) != initialChip { return false }
+        if chip(atColumn: column + (moveX * 3), row: row + (moveY * 3)) != initialChip { return false }
+        return true
     }
     
     mutating func add(chip: ChipColor, toColumn column: Int, andRow row: Int) {
