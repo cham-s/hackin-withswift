@@ -117,7 +117,7 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let col = col(forTouches: touches) {
             guard let row =  board.nextAvailableRow(fromColumn: col) else { return }
-            board.add(chip: .red, toColumn: col, andRow: row)
+            board.add(chip: currentPlayer.chip, toColumn: col, andRow: row)
             addChip(color: currentPlayer.chipColor, inColumn: col)
             continueGame()
         }
