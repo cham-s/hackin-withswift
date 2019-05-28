@@ -74,6 +74,7 @@ struct Board {
     }
     
     func isWin() -> Bool {
+        
         /* TODO: check the whole board
          - check boundaries
          - check vertical four
@@ -98,7 +99,6 @@ struct Board {
         
         switch (moveX, moveY) {
         case let (x, y) where x == 1 && y == 0:
-            
             if column > 3 {
                 return false
             }
@@ -106,11 +106,14 @@ struct Board {
             if row > 2 {
                 return false
             }
-        default:
+        case let (x, y) where x == 1  && y == 1:
             if row > 2 || column > 3 {
                 return false
             }
+        default:
+            break
         }
+        
         if chip(atColumn: column + (moveX * 0), row: row + (moveY * 0)) != initialChip { return false }
         if chip(atColumn: column + (moveX * 1), row: row + (moveY * 1)) != initialChip { return false }
         if chip(atColumn: column + (moveX * 2), row: row + (moveY * 2)) != initialChip { return false }
